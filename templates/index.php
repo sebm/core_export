@@ -9,5 +9,8 @@
     <li><a href='<?php $POD->siteRoot ?>/export?action=exportactivepods'>
       Export the list of currently-active pods
     </a></li>
+    <li><a href='<?php $POD->siteRoot ?>/export?action=importactivepods'>
+      Import a list of pods to activate
+    </a></li>
   </ul>
 </nav>

@@ -13,6 +13,20 @@ switch ($_GET['action']) {
     $podJSON = json_encode($POD->podsList());
     
     break;
+    
+  case 'importactivepods':
+    $action = 'importactivepods';
+    
+    $podJSON = $_POST['podjson'];
+  
+    if ($podJSON) {
+      $POD->activating = true;
+      $podlist = json_decode($podJSON,true);
+      
+      $POD->activatePods($podlist);
+    }
+    
+    break;
   default:
     $action = 'index';
     break;
