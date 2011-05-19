@@ -12,5 +12,8 @@
     <li><a href='<?php $POD->siteRoot ?>/export?action=importactivepods'>
       Import a list of pods to activate
     </a></li>
+    <li><a href='<?php $POD->siteRoot ?>/export?action=exportmedia'>
+      Export the site's media
+    </a></li>
   </ul>
 </nav>

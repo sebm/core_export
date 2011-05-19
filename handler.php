@@ -27,6 +27,19 @@ switch ($_GET['action']) {
     }
     
     break;
+    
+  case 'exportmedia':
+    $action = 'exportmedia';
+  
+    if ($_GET['contents'] == 'images') {
+      if ($_GET['since'] == 'ever') {
+        $POD->exportZippedImagesDirectory();
+        exit();
+      }
+    }
+  
+    break;
+    
   default:
     $action = 'index';
     break;

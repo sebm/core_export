@@ -43,5 +43,8 @@ function activatePods($POD, $podlist) {
   }
   
 }
-
 PeoplePod::registerMethod('activatePods');
+
+function exportZippedImagesDirectory($POD) {
+  
+}
