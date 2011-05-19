@@ -67,7 +67,7 @@ function exportZippedImagesDirectory($POD, $excludeResized=true) {
     exit("cannot open <$outfile>\n");
   }  
   foreach ($files as $f) {
-    $zip->addFile("$file_dir/$f");
+    $zip->addFile("$file_dir/$f", $f);
   }
   $zip->close();
 
