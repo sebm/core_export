@@ -37,6 +37,11 @@
   <li>Hit "Import Pods"</li>
 </ol>
 
+<p>
+  At present this pod only activates inactive plugins;
+  it will not deactivate active ones.
+</p>
+
 <form 
   action='<?php $POD->siteRoot() ?>/export?action=importactivepods'
   method='POST'
@@ -46,3 +51,4 @@
   <input type='submit' value='Import Pods'>
   
 </form>
+<a href='<?php $POD->siteRoot()?>/export'>Back to Import/Export homepage</a>
