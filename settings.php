@@ -5,7 +5,7 @@ $POD->registerPOD(
   'Import/export pod',
   array(
     '^export$' => 'core_export/handler.php',
-    '^export/(.*)' => 'core_export/handler.php?q=$1'
+    '^export/?(.*)' => 'core_export/handler.php?$1'
   ),
   array(),
   dirname(__FILE__).'/methods.php'

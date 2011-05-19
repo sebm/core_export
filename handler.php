@@ -6,9 +6,19 @@ $POD = new PeoplePod(array(
   'lockdown'=>'login'
 ));
 
+switch ($_GET['action']) {
+  case 'exportactivepods':
+    $action = 'exportactivepods';
+    break;
+  default:
+    $action = 'index';
+    break;
+}
+
 ?>
 
-<?php $POD->output('header') ?>
-<h1>Hello World!</h1>
+<?php $POD->header('Import/Export') ?>
 
-<?php $POD->output('footer') ?>
+<?php $POD->output($action, dirname(__FILE__).'/templates') ?>
+
+<?php $POD->footer() ?>
