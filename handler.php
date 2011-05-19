@@ -9,6 +9,9 @@ $POD = new PeoplePod(array(
 switch ($_GET['action']) {
   case 'exportactivepods':
     $action = 'exportactivepods';
+
+    $podJSON = json_encode($POD->podsList());
+    
     break;
   default:
     $action = 'index';
