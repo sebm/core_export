@@ -45,6 +45,40 @@ function activatePods($POD, $podlist) {
 }
 PeoplePod::registerMethod('activatePods');
 
-function exportZippedImagesDirectory($POD) {
+function exportZippedImagesDirectory($POD, $excludeResized=true) {
+  $file_dir = realpath('../../files/images');
+  $handle = opendir($file_dir);
   
+  $files = array();
+
+  while (false !== ($file = readdir($handle))) {
+    if ($excludeResized && preg_match('/original|resized/', $file) 
+        || !$excludeResized && $file != '.' && $file != '..' ) 
+    {
+      $files []=$file;
+    }
+  }
+  
+  closedir($handle);
+  
+  $outfile = tempnam("tmp", "zip");
+  $zip = new ZipArchive();
+  if ($zip->open($outfile, ZIPARCHIVE::CREATE )!==TRUE) {
+    exit("cannot open <$outfile>\n");
+  }  
+  foreach ($files as $f) {
+    $zip->addFile("$file_dir/$f");
+  }
+  $zip->close();
+
+  header('Content-Type: application/zip');
+  header('Content-Length: ' . filesize($outfile));
+  header('Content-Disposition: attachment; filename="archive.zip"');
+
+  readfile($outfile);
+  unlink($outfile);
+  exit;
+
 }
+
+PeoplePod::registerMethod('exportZippedImagesDirectory');
