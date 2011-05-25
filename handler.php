@@ -3,7 +3,7 @@
 include_once('../../PeoplePods.php');
 $POD = new PeoplePod(array(
   'authSecret'=>$_COOKIE['pp_auth'],
-  'lockdown'=>'login'
+  'lockdown'=>'adminUser'
 ));
 
 switch ($_GET['action']) {
